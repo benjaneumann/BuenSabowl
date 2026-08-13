@@ -268,7 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let subtotal = 0;
             
             cart.forEach((item, index) => {
-                subtotal += item.price;
+                const itemTotal = item.price * (item.quantity || 1);
+                subtotal += itemTotal;
                 
                 const itemEl = document.createElement('div');
                 itemEl.className = 'cart-item';
@@ -276,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="cart-item-details">
                         <h4>${item.name}</h4>
                         <p>${item.description}</p>
-                        <span class="cart-item-price">${formatPrice(item.price)}</span>
+                        <span class="cart-item-price">${formatPrice(itemTotal)}${item.quantity && item.quantity > 1 ? ' × ' + item.quantity : ''}</span>
                     </div>
                     <button class="cart-item-remove" data-index="${index}" aria-label="Eliminar item">
                         <i data-lucide="trash-2" style="width: 18px; height: 18px;"></i>
@@ -288,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartCountBadge.textContent = cart.length;
             cartSubtotalEl.textContent = formatPrice(subtotal);
             
-            if (typeof lucide !== 'undefined') {
+        if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
         }
@@ -305,7 +306,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        cart.push(item);
+        // Check if item already exists in cart
+        const existing = cart.find(cartItem => cartItem.id === item.id);
+        if (existing) {
+            // Increment quantity
+            existing.quantity = (existing.quantity || 1) + 1;
+        } else {
+            // Add new item with quantity 1
+            item.quantity = 1;
+            cart.push(item);
+        }
         updateCartUI();
         // Open drawer for positive feedback
         if (cartSidebar && !cartSidebar.classList.contains('active')) {

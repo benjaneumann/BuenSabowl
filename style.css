@@ -1664,19 +1664,10 @@ h1, h2, h3, h4 {
     color: var(--primary-forest);
 }
 
-.delivery-option-row {
-    align-items: center;
-    border-bottom: 1px solid rgba(30, 63, 53, 0.05);
-    padding-bottom: 16px;
-    margin-bottom: 20px;
-}
+.delivery-option-row { display: none; }
 
 .delivery-toggle-container {
-    background-color: var(--bg-cream);
-    padding: 4px;
-    border-radius: 30px;
-    display: flex;
-    gap: 4px;
+    display: none !important;
 }
 
 .delivery-toggle-btn {
@@ -1734,6 +1725,10 @@ h1, h2, h3, h4 {
 @media (max-width: 768px) {
     .mobile-toggle {
         display: block;
+    }
+    /* Hide "BuenSabowl" text in navbar on mobile — keep only the logo image */
+    .navbar .logo-text {
+        display: none;
     }
     .nav-menu {
         position: fixed;
