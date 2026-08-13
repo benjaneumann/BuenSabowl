@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buen Sabowl Concepción - Aprende cómo funciona nuestro concepto de armado de bowls saludables. Sabor natural a tu medida.">
+    <title>El Concepto | Buen Sabowl</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Buen Sabowl" class="logo-img">
+                <span class="logo-text">Buen<span class="logo-highlight">Sabowl</span></span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="concepto.html" class="nav-link active">El Concepto</a>
+                <a href="productos.html" class="nav-link">Carta</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <!-- Top Sucursal Selector -->
+                <div class="top-sucursal-selector">
+                    <i data-lucide="map-pin" style="width: 14px; height: 14px; color: var(--primary-forest);"></i>
+                    <select id="top-sucursal-select">
+                        <option value="Barros Arana">Barros Arana</option>
+                        <option value="Janequeo">Janequeo</option>
+                    </select>
+                </div>
+                
+                <button class="cart-trigger" id="cart-trigger" aria-label="Abrir carrito">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Menú móvil">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONCEPTO SECTION -->
+    <section id="concepto" class="concepto" style="padding-top: 140px; padding-bottom: 100px; min-height: 80vh;">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">¿Cómo funciona?</span>
+                <h2 class="section-title">El Arte de Armar tu Bowl</h2>
+                <p class="section-subtitle">En Buen Sabowl tú tienes el control absoluto de lo que comes. Sigue estos simples pasos para crear tu combinación perfecta:</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="grid-3x3"></i>
+                    </div>
+                    <h3>Elige tu Base</h3>
+                    <p>Arroz sushi premium, arroz integral nutritivo, quinoa orgánica o un fresco mix de hojas verdes (lechuga, espinaca y rúcula).</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="gem"></i>
+                    </div>
+                    <h3>Elige tu Proteína</h3>
+                    <p>El precio final de tu bowl se define únicamente por esta elección: Salmón, Pollo Teriyaki, Lomito, Kanikama o Champiñón.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="salad"></i>
+                    </div>
+                    <h3>Suma tus Vegetales</h3>
+                    <p>Combina hasta 4 vegetales frescos de nuestra barra (zanahoria, edamame, palta, pepino, choclo...) ¡sin costo adicional!</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="droplet"></i>
+                    </div>
+                    <h3>El Toque Final</h3>
+                    <p>Completa con tu aderezo favorito: Teriyaki de la casa, soya light, mostaza miel o nuestra salsa secreta Buen Sabowl.</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 60px;">
+                <a href="productos.html" class="btn btn-primary">
+                    <i data-lucide="shopping-bag"></i> Ver la Carta y Armar Bowl
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="Buen Sabowl" class="logo-img">
+                    <span class="logo-text">Buen<span class="logo-highlight">Sabowl</span></span>
+                </a>
+                <p>Comida saludable, fresca y personalizada al alcance de tu mano en Concepción. Arma tu bowl ideal hoy.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <a href="index.html">Inicio</a>
+                <a href="concepto.html">El Concepto</a>
+                <a href="productos.html">Nuestra Carta</a>
+            </div>
+            <div class="footer-social">
+                <h4>Contacto & Redes</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/buensabowl" target="_blank" aria-label="Instagram"><img src="assets/instagram.png" alt="Instagram"></a>
+                    <a href="https://wa.me/56956984709" target="_blank" aria-label="WhatsApp"><img src="assets/whatsapp.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Buen Sabowl Concepción. Todos los derechos reservados. Desarrollado con amor por la comunidad local.</p>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART SIDEBAR (Slide-out) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <div class="cart-header-title">
+                <i data-lucide="shopping-bag"></i>
+                <h3>Tu Pedido</h3>
+            </div>
+            <button class="cart-close" id="cart-close" aria-label="Cerrar carrito">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        
+        <!-- Cart Items (Scrollable) -->
+        <div class="cart-items" id="cart-items-container">
+            <div class="cart-empty-state" id="cart-empty-state">
+                <i data-lucide="shopping-cart" class="empty-icon"></i>
+                <p>Tu carrito está vacío. ¡Comienza a agregar cosas ricas!</p>
+                <a href="productos.html" class="btn btn-secondary btn-sm close-cart-btn-action">Ver menú</a>
+            </div>
+        </div>
+        
+        <!-- Cart Footer -->
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Subtotal:</span>
+                <span class="cart-subtotal" id="cart-subtotal">$0</span>
+            </div>
+            <div class="cart-summary-row delivery-option-row">
+                <span>Entrega:</span>
+                <div class="delivery-toggle-container">
+                    <label class="delivery-toggle-btn active" id="btn-takeaway">
+                        <input type="radio" name="delivery-mode" value="takeaway" checked style="display:none;">
+                        <span>Retiro</span>
+                    </label>
+                    <label class="delivery-toggle-btn" id="btn-delivery">
+                        <input type="radio" name="delivery-mode" value="delivery" style="display:none;">
+                        <span>Delivery</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Sucursal Option -->
+            <div class="cart-summary-row sucursal-option-row" id="sucursal-selection-row" style="margin-top: 10px;">
+                <span>Sucursal:</span>
+                <select id="cart-sucursal-select" style="padding: 6px 12px; border-radius: var(--border-radius-sm); border: 1.5px solid rgba(30, 63, 53, 0.15); background-color: var(--white); color: var(--text-charcoal); font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; outline: none; transition: var(--transition-smooth); width: 140px;">
+                    <option value="Barros Arana">Barros Arana</option>
+                    <option value="Janequeo">Janequeo</option>
+                </select>
+            </div>
+            
+            <div class="cart-actions">
+                <button class="btn btn-primary btn-block checkout-btn" id="checkout-btn">
+                    <i data-lucide="credit-card"></i> Proceder al Pago
+                </button>
+                <button class="btn btn-secondary btn-block" id="continue-shopping-btn">
+                    Seguir Comprando
+                </button>
+            </div>
+            
+            <p class="cart-disclaimer">Pago rápido y seguro disponible mediante Webpay / Transbank.</p>
+        </div>
+    </aside>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>

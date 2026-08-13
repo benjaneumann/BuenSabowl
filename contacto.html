@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacto, dirección, horarios de atención y redes sociales de Buen Sabowl en Concepción.">
+    <title>Contacto y Locales | Buen Sabowl</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Buen Sabowl" class="logo-img">
+                <span class="logo-text">Buen<span class="logo-highlight">Sabowl</span></span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="concepto.html" class="nav-link">El Concepto</a>
+                <a href="productos.html" class="nav-link">Carta</a>
+                <a href="contacto.html" class="nav-link active">Contacto</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <!-- Top Sucursal Selector -->
+                <div class="top-sucursal-selector">
+                    <i data-lucide="map-pin" style="width: 14px; height: 14px; color: var(--primary-forest);"></i>
+                    <select id="top-sucursal-select">
+                        <option value="Barros Arana">Barros Arana</option>
+                        <option value="Janequeo">Janequeo</option>
+                    </select>
+                </div>
+                
+                <button class="cart-trigger" id="cart-trigger" aria-label="Abrir carrito">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Menú móvil">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTACT & MAP SECTION -->
+    <section id="contacto" class="contacto-section" style="padding-top: 140px; padding-bottom: 100px; min-height: 85vh;">
+        <div class="container">
+            <div class="contacto-wrapper card">
+                <div class="contacto-info">
+                    <span class="section-tag">Ubicación y Horarios</span>
+                    <h2 class="section-title">¡Te esperamos en Concepción!</h2>
+                    <p class="contacto-desc">Disfruta de nuestros bowls en un ambiente cálido y natural. También puedes pedir retiro en local o delivery directo.</p>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i data-lucide="map-pin"></i>
+                            <div>
+                                <h4>Local 1: Janequeo</h4>
+                                <p>Janequeo 315, Concepción</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i data-lucide="map-pin"></i>
+                            <div>
+                                <h4>Local 2: Barros Arana</h4>
+                                <p>Barros Arana 871 L3, Concepción</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i data-lucide="clock"></i>
+                            <div>
+                                <h4>Horario de Atención</h4>
+                                <p><strong>Janequeo:</strong> Lun-Vie 08:45 a 17:00 hrs.<br>
+                                <strong>Barros Arana:</strong> Lun-Sab 11:30 a 18:00 hrs.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i data-lucide="instagram"></i>
+                            <div>
+                                <h4>Redes Sociales</h4>
+                                <p><a href="https://www.instagram.com/buensabowl" target="_blank" class="instagram-link">@buensabowl</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Graphic Simulated Map -->
+                <div class="contacto-map">
+                    <div class="map-graphic-box">
+                        <div class="map-circle ripple"></div>
+                        <div class="map-circle-2 ripple"></div>
+                        <div class="map-pin-marker m-1" style="top: 35%; left: 35%;">
+                            <i data-lucide="map-pin" class="marker-icon"></i>
+                            <span class="marker-label">Janequeo 315</span>
+                        </div>
+                        <div class="map-pin-marker m-2" style="top: 55%; left: 60%;">
+                            <i data-lucide="map-pin" class="marker-icon"></i>
+                            <span class="marker-label">Barros Arana 871 L3</span>
+                        </div>
+                        <div class="map-details">
+                            <i data-lucide="navigation"></i>
+                            <span>Ciudad de Concepción, Región del Bío Bío</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="Buen Sabowl" class="logo-img">
+                    <span class="logo-text">Buen<span class="logo-highlight">Sabowl</span></span>
+                </a>
+                <p>Comida saludable, fresca y personalizada al alcance de tu mano en Concepción. Arma tu bowl ideal hoy.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <a href="index.html">Inicio</a>
+                <a href="concepto.html">El Concepto</a>
+                <a href="productos.html">Nuestra Carta</a>
+            </div>
+            <div class="footer-social">
+                <h4>Contacto & Redes</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/buensabowl" target="_blank" aria-label="Instagram"><img src="assets/instagram.png" alt="Instagram"></a>
+                    <a href="https://wa.me/56956984709" target="_blank" aria-label="WhatsApp"><img src="assets/whatsapp.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Buen Sabowl Concepción. Todos los derechos reservados. Desarrollado con amor por la comunidad local.</p>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART SIDEBAR (Slide-out) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <div class="cart-header-title">
+                <i data-lucide="shopping-bag"></i>
+                <h3>Tu Pedido</h3>
+            </div>
+            <button class="cart-close" id="cart-close" aria-label="Cerrar carrito">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        
+        <!-- Cart Items (Scrollable) -->
+        <div class="cart-items" id="cart-items-container">
+            <div class="cart-empty-state" id="cart-empty-state">
+                <i data-lucide="shopping-cart" class="empty-icon"></i>
+                <p>Tu carrito está vacío. ¡Comienza a agregar cosas ricas!</p>
+                <a href="productos.html" class="btn btn-secondary btn-sm close-cart-btn-action">Ver menú</a>
+            </div>
+        </div>
+        
+        <!-- Cart Footer -->
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Subtotal:</span>
+                <span class="cart-subtotal" id="cart-subtotal">$0</span>
+            </div>
+            <div class="cart-summary-row delivery-option-row">
+                <span>Entrega:</span>
+                <div class="delivery-toggle-container">
+                    <label class="delivery-toggle-btn active" id="btn-takeaway">
+                        <input type="radio" name="delivery-mode" value="takeaway" checked style="display:none;">
+                        <span>Retiro</span>
+                    </label>
+                    <label class="delivery-toggle-btn" id="btn-delivery">
+                        <input type="radio" name="delivery-mode" value="delivery" style="display:none;">
+                        <span>Delivery</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Sucursal Option -->
+            <div class="cart-summary-row sucursal-option-row" id="sucursal-selection-row" style="margin-top: 10px;">
+                <span>Sucursal:</span>
+                <select id="cart-sucursal-select" style="padding: 6px 12px; border-radius: var(--border-radius-sm); border: 1.5px solid rgba(30, 63, 53, 0.15); background-color: var(--white); color: var(--text-charcoal); font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; outline: none; transition: var(--transition-smooth); width: 140px;">
+                    <option value="Barros Arana">Barros Arana</option>
+                    <option value="Janequeo">Janequeo</option>
+                </select>
+            </div>
+            
+            <div class="cart-actions">
+                <button class="btn btn-primary btn-block checkout-btn" id="checkout-btn">
+                    <i data-lucide="credit-card"></i> Proceder al Pago
+                </button>
+                <button class="btn btn-secondary btn-block" id="continue-shopping-btn">
+                    Seguir Comprando
+                </button>
+            </div>
+            
+            <p class="cart-disclaimer">Pago rápido y seguro disponible mediante Webpay / Transbank.</p>
+        </div>
+    </aside>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
