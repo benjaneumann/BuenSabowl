@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Menú y carta online de Buen Sabowl Concepción. Realiza tu pedido fácil y rápido.">
+    <title>Productos | Buen Sabowl</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-container container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Buen Sabowl" class="logo-img">
+                <span class="logo-text">Buen<span class="logo-highlight">Sabowl</span></span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="concepto.html" class="nav-link">El Concepto</a>
+                <a href="productos.html" class="nav-link active">Carta</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <!-- Top Sucursal Selector -->
+                <div class="top-sucursal-selector">
+                    <i data-lucide="map-pin" style="width: 14px; height: 14px; color: var(--primary-forest);"></i>
+                    <select id="top-sucursal-select">
+                        <option value="Barros Arana">Barros Arana</option>
+                        <option value="Janequeo">Janequeo</option>
+                    </select>
+                </div>
+                
+                <button class="cart-trigger" id="cart-trigger" aria-label="Abrir carrito">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Menú móvil">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PRODUCT LIST PAGE -->
+    <main class="products-page-container container" style="padding-top: 130px; padding-bottom: 80px; max-width: 1000px; min-height: 85vh;">
+        
+        <!-- Store Header Info -->
+        <header class="store-header card" style="padding: 24px; margin-bottom: 40px; text-align: center; background-color: var(--white); border-radius: var(--border-radius-md); box-shadow: var(--card-shadow);">
+            <img src="assets/logo.png" alt="Buen Sabowl Logo" style="width: 80px; margin: 0 auto 12px; display: block;">
+            <h1 style="font-size: 2.2rem; font-family: 'Playfair Display', serif; margin-bottom: 4px;">Buen Sabowl</h1>
+            <p style="color: var(--text-light); font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px;">
+                <i data-lucide="map-pin" style="width: 16px; height: 16px; color: var(--secondary-mint);"></i>
+                <a id="store-address-link" href="https://www.google.com/maps/search/?api=1&query=-36.8246105,-73.0399974" target="_blank" style="text-decoration: underline; color: var(--primary-forest);">Janequeo 315, Concepción</a>
+            </p>
+            <p id="store-hours-text" style="color: var(--text-light); font-size: 0.85rem; margin-bottom: 12px; font-weight: 500;"></p>
+            <div id="store-status-wrapper">
+                <span class="store-status-badge" style="background-color: #eaf5f0; color: #2d9d68; padding: 6px 16px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
+                    <span class="status-dot" style="width: 8px; height: 8px; background-color: #2d9d68; border-radius: 50%;"></span>
+                    Abierto Ahora
+                </span>
+            </div>
+        </header>
+
+        <!-- Simple GoMenu-like Product List -->
+        <div class="menu-list-wrapper">
+            
+            <!-- Category: Bowls (Customizable items) -->
+            <section class="menu-category-block" style="margin-bottom: 48px;">
+                <h2 class="category-heading" style="font-size: 1.4rem; font-weight: 800; border-bottom: 2px solid var(--primary-forest); padding-bottom: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; color: var(--primary-forest);">
+                    <span>Bowls</span>
+                    <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-light); background: rgba(30,63,53,0.06); padding: 2px 10px; border-radius: 12px;">9 items</span>
+                </h2>
+                
+                <div class="menu-list-items">
+                    
+                    <!-- ITEM: Pollo -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'item-pollo', name: 'Bowl Pollo', price: 5990, desc: 'Exquisito pollo grillado sobre base, aderezo y vegetales a tu elección.', img: 'assets/bowl_pollo.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/bowl_pollo.jpg" alt="Bowl Pollo" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Pollo</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$5.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM: Lomo -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'item-lomo', name: 'Bowl Lomo', price: 5990, desc: 'Tiernas tiras de lomito salteado sobre base, aderezo y vegetales a tu elección.', img: 'assets/bowl_lomo.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/bowl_lomo.jpg" alt="Bowl Lomo" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Lomo</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$5.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM: Pollo Teriyaki -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'item-pollo-teriyaki', name: 'Bowl Pollo Teriyaki', price: 5990, desc: 'Pechuga de pollo glaseada en nuestra clásica salsa teriyaki dulce.', img: 'assets/bowl_pollo_teriyaki.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/bowl_pollo_teriyaki.jpg" alt="Bowl Pollo Teriyaki" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Pollo Teriyaki</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$5.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM: Lomo Teriyaki -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'item-lomo-teriyaki', name: 'Bowl Lomo Teriyaki', price: 5990, desc: 'Lomo vacuno salteado bañado en salsa teriyaki dulce.', img: 'assets/bowl_lomo_teriyaki.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/bowl_lomo_teriyaki.jpg" alt="Bowl Lomo Teriyaki" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Lomo Teriyaki</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$5.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM: Salmon -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'item-salmon', name: 'Bowl Salmón', price: 6790, desc: 'Cubos frescos de salmón rosado premium. Elige tu base, vegetales y salsa.', img: 'assets/bowl_salmon.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/bowl_salmon.jpg" alt="Bowl Salmón" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Salmón</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$6.790</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM: Salmón Kanikama -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'item-salmon-kanikama', name: 'Bowl Salmón Kanikama', price: 6990, desc: 'Doble combinación marina de salmón fresco y tiras de kanikama desmenuzado.', img: 'assets/bowl_salmon_kanikama.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/bowl_salmon_kanikama.jpg" alt="Bowl Salmón Kanikama" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Salmón Kanikama</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$6.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM: Kanikama -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'item-kanikama', name: 'Bowl Kanikama', price: 5490, desc: 'Fresco y ligero kanikama desmenuzado. Elige tu base, vegetales y salsa.', img: 'assets/bowl_kanikama.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/bowl_kanikama.jpg" alt="Bowl Kanikama" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Kanikama</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$5.490</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM: Champiñón -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'item-champinon', name: 'Bowl Champiñón', price: 4990, desc: 'Opción vegetariana de champiñones salteados al wok. Elige tu base, vegetales y salsa.', img: 'assets/bowl_champinon.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/bowl_champinon.jpg" alt="Bowl Champiñón" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Champiñón</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$4.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM: Huevo -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'item-huevo', name: 'Bowl Huevo', price: 4990, desc: 'Huevo cocido de campo en rebanadas nutritivas. Elige tu base, vegetales y salsa.', img: 'assets/bowl_huevo.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/bowl_huevo.jpg" alt="Bowl Huevo" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Huevo</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$4.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category: Mini Bowls (Direct Add) -->
+            <section class="menu-category-block" style="margin-bottom: 48px;">
+                <h2 class="category-heading" style="font-size: 1.4rem; font-weight: 800; border-bottom: 2px solid var(--primary-forest); padding-bottom: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; color: var(--primary-forest);">
+                    <span>Mini Bowls</span>
+                    <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-light); background: rgba(30,63,53,0.06); padding: 2px 10px; border-radius: 12px;">7 items</span>
+                </h2>
+                
+                <div class="menu-list-items">
+                    <!-- ITEM: Promo Dos Mini -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'menu-mini-promo', name: 'Promo Dos Mini', price: 7990, desc: '¡Perfecto para compartir! Elige dos mini bowls de tu proteína favorita a precio especial.', img: 'assets/mini_promo.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/mini_promo.jpg" alt="Promo Dos Mini" class="menu-row-img" onerror="this.src='assets/chicken_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Promo Dos Mini</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$7.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ITEM: Mini Pollo -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'menu-mini-pollo', name: 'Mini Pollo', price: 4490, desc: 'Porción infantil de pollo teriyaki dulce sobre arroz sushi.', img: 'assets/mini_pollo.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/mini_pollo.jpg" alt="Mini Pollo" class="menu-row-img" onerror="this.src='assets/chicken_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Mini Pollo</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$4.490</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ITEM: Mini Lomo -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'menu-mini-lomo', name: 'Mini Lomo', price: 4490, desc: 'Porción ideal de lomo salteado con base de arroz integral.', img: 'assets/mini_lomo.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/mini_lomo.jpg" alt="Mini Lomo" class="menu-row-img" onerror="this.src='assets/chicken_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Mini Lomo</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$4.490</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ITEM: Mini Pollo Teriyaki -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'menu-mini-pollo-teriyaki', name: 'Mini Pollo Teriyaki', price: 4490, desc: 'Pechuga de pollo mini marinada con aderezo teriyaki casero.', img: 'assets/mini_pollo_teriyaki.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/mini_pollo_teriyaki.jpg" alt="Mini Pollo Teriyaki" class="menu-row-img" onerror="this.src='assets/chicken_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Mini Pollo Teriyaki</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$4.490</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ITEM: Mini Lomo Teriyaki -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'menu-mini-lomo-teriyaki', name: 'Mini Lomo Teriyaki', price: 4490, desc: 'Tiras de lomo dulce teriyaki en formato compacto para llevar.', img: 'assets/mini_lomo_teriyaki.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/mini_lomo_teriyaki.jpg" alt="Mini Lomo Teriyaki" class="menu-row-img" onerror="this.src='assets/chicken_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Mini Lomo Teriyaki</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$4.490</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ITEM: Mini Champiñón -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'menu-mini-champinon', name: 'Mini Champiñón', price: 3990, desc: 'Snack de champiñones salteados para llevar con mix verde.', img: 'assets/mini_champinon.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/mini_champinon.jpg" alt="Mini Champiñón" class="menu-row-img" onerror="this.src='assets/chicken_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Mini Champiñón</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$3.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ITEM: Mini Huevo -->
+                    <div class="menu-row-item card customizable" onclick="openCustomizerModal({ id: 'menu-mini-huevo', name: 'Mini Huevo', price: 3990, desc: 'Rebanadas de huevo cocido en un formato de mini-bowl rápido.', img: 'assets/mini_huevo.jpg' })">
+                        <div class="menu-row-main">
+                            <img src="assets/mini_huevo.jpg" alt="Mini Huevo" class="menu-row-img" onerror="this.src='assets/chicken_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Mini Huevo</h3>
+                                <p>Haz clic para elegir tu base, vegetales y salsa.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$3.990</span>
+                                <button class="btn-customize-trigger" aria-label="Personalizar">
+                                    <i data-lucide="plus" class="plus-icon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category: Desayunos (Direct Add) -->
+            <section class="menu-category-block" style="margin-bottom: 48px;">
+                <h2 class="category-heading" style="font-size: 1.4rem; font-weight: 800; border-bottom: 2px solid var(--primary-forest); padding-bottom: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; color: var(--primary-forest);">
+                    <span>Desayunos</span>
+                    <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-light); background: rgba(30,63,53,0.06); padding: 2px 10px; border-radius: 12px;">6 items</span>
+                </h2>
+                
+                <div class="menu-list-items">
+                    <div class="menu-row-item card">
+                        <span class="breakfast-badge">Solo Janequeo</span>
+                        <div class="menu-row-main-direct">
+                            <img src="assets/desayuno_tostadas.jpg" alt="Tostadas con Palta" class="menu-row-img" onerror="this.src='assets/breakfast.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Tostadas con Palta</h3>
+                                <p>Crujientes tostadas de pan de masa madre con palta hass molida.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$2.990</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-des-tostadas" data-name="Tostadas con Palta" data-price="2990" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-row-item card">
+                        <span class="breakfast-badge">Solo Janequeo</span>
+                        <div class="menu-row-main-direct">
+                            <img src="assets/desayuno_selladitos.jpg" alt="Selladitos Jamón Queso" class="menu-row-img" onerror="this.src='assets/breakfast.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Selladitos Jamón Queso</h3>
+                                <p>Clásico sellado caliente con jamón seleccionado y queso fundido.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$3.490</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-des-selladitos" data-name="Selladitos Jamón Queso" data-price="3490" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-row-item card">
+                        <span class="breakfast-badge">Solo Janequeo</span>
+                        <div class="menu-row-main-direct">
+                            <img src="assets/desayuno_paila.jpg" alt="Paila de Huevos" class="menu-row-img" onerror="this.src='assets/breakfast.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Paila de Huevos</h3>
+                                <p>Huevos revueltos de campo al sartén servidos con tostadas de pan.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$3.490</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-des-paila" data-name="Paila de Huevo" data-price="3490" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-row-item card">
+                        <span class="breakfast-badge">Solo Janequeo</span>
+                        <div class="menu-row-main-direct">
+                            <img src="assets/desayuno_sandwich.jpg" alt="Sándwich Buen Sabowl" class="menu-row-img" onerror="this.src='assets/breakfast.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Sándwich Buen Sabowl</h3>
+                                <p>Pan ciabatta rústico, pollo a la plancha, palta, rúcula y aderezo especial.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$4.490</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-des-sandwich" data-name="Sándwich Buen Sabowl" data-price="4490" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-row-item card">
+                        <span class="breakfast-badge">Solo Janequeo</span>
+                        <div class="menu-row-main-direct">
+                            <img src="assets/desayuno_kuchen.jpg" alt="Kuchen variedades" class="menu-row-img" onerror="this.src='assets/breakfast.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Kuchen variedades</h3>
+                                <p>Kuchen artesanal al estilo sureño de manzana o arándanos frescos.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$5.490</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-des-kuchen" data-name="Kuchen variedades" data-price="5490" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-row-item card">
+                        <span class="breakfast-badge">Solo Janequeo</span>
+                        <div class="menu-row-main-direct">
+                            <img src="assets/desayuno_alfajor.jpg" alt="Alfajor Artesanal" class="menu-row-img" onerror="this.src='assets/breakfast.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Alfajor Artesanal</h3>
+                                <p>Relleno con abundante manjar, cubierto de chocolate de repostería.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$3.490</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-des-alfajor" data-name="Alfajor Artesanal" data-price="3490" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category: Bebestibles (Direct Add) -->
+            <section class="menu-category-block" style="margin-bottom: 48px;">
+                <h2 class="category-heading" style="font-size: 1.4rem; font-weight: 800; border-bottom: 2px solid var(--primary-forest); padding-bottom: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; color: var(--primary-forest);">
+                    <span>Bebestibles</span>
+                    <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-light); background: rgba(30,63,53,0.06); padding: 2px 10px; border-radius: 12px;">5 items</span>
+                </h2>
+                
+                <div class="menu-list-items">
+                    <div class="menu-row-item card">
+                        <div class="menu-row-main-direct">
+                            <img src="assets/bebida_jugo.jpg" alt="Jugo Natural" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Jugo Natural</h3>
+                                <p>Pulpa de fruta natural licuada con hielo (Piña, frutilla, naranja o mango).</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$2.490</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-dr-jugo" data-name="Jugo Natural" data-price="2490" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-row-item card">
+                        <div class="menu-row-main-direct">
+                            <img src="assets/bebida_cafe_grano.jpg" alt="Café de Grano" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Café de Grano</h3>
+                                <p>Capuccino, Espresso o Americano con granos recién tostados y molidos.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$2.990</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-dr-cafe" data-name="Café de Grano" data-price="2990" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-row-item card">
+                        <div class="menu-row-main-direct">
+                            <img src="assets/bebida_milo.jpg" alt="Café Tradicional o Milo" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Café Tradicional o Milo</h3>
+                                <p>Café instantáneo tradicional o Milo achocolatado caliente.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$1.890</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-dr-milo" data-name="Café Tradicional / Milo" data-price="1890" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-row-item card">
+                        <div class="menu-row-main-direct">
+                            <img src="assets/bebida_lata.jpg" alt="Bebida en Lata" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Bebida en Lata</h3>
+                                <p>Refrescos y gaseosas heladas surtidas en formato de lata.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$1.490</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-dr-lata" data-name="Bebida en Lata" data-price="1490" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-row-item card">
+                        <div class="menu-row-main-direct">
+                            <img src="assets/bebida_te.jpg" alt="Té caliente" class="menu-row-img" onerror="this.src='assets/hero_bowl.jpg'">
+                            <div class="menu-row-info">
+                                <h3>Té</h3>
+                                <p>Té negro, té verde o infusiones de hierbas calientes.</p>
+                            </div>
+                            <div class="menu-row-action">
+                                <span class="menu-price">$1.490</span>
+                                <button class="btn-icon-only add-to-cart-btn" data-id="menu-dr-te" data-name="Té caliente" data-price="1490" aria-label="Agregar al carrito">
+                                    <i data-lucide="plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- BOWL CUSTOMIZER MODAL (Menú Emergente) -->
+    <div class="modal-overlay" id="customizer-modal-overlay">
+        <div class="modal-content card">
+            <button class="modal-close" id="modal-close-btn" aria-label="Cerrar modal">
+                <i data-lucide="x"></i>
+            </button>
+            
+            <div class="modal-body-scroll">
+                <!-- Header: Image, Title, Desc, Price -->
+                <div class="modal-header-block">
+                    <img src="" alt="" id="modal-product-img" class="modal-product-image">
+                    <div class="modal-product-details">
+                        <h3 id="modal-product-name">Bowl</h3>
+                        <p id="modal-product-desc">Descripción del producto</p>
+                        <span class="modal-product-price" id="modal-product-price">$5.990</span>
+                    </div>
+                </div>
+                
+                <hr class="panel-divider">
+                
+                <!-- Options forms -->
+                <div class="panel-sections-grid">
+                    <!-- Base Selection -->
+                    <div class="panel-section">
+                        <h4>1. Selecciona tu Base: <span style="color: var(--accent-terracotta);">*</span></h4>
+                        <div class="panel-options" id="modal-base-options">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Veggies Selection -->
+                    <div class="panel-section">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <h4 style="margin-bottom: 0;">2. Agrega Vegetales (máx. 4):</h4>
+                            <span id="modal-veggies-indicator" style="font-size: 0.85rem; font-weight: 700; color: var(--text-light); background: rgba(30,63,53,0.06); padding: 2px 10px; border-radius: 12px;">0 / 4</span>
+                        </div>
+                        <div class="panel-options" id="modal-veggies-options">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Sauce Selection -->
+                    <div class="panel-section">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <h4 style="margin-bottom: 0;">3. Elige tus Salsas (máx. 6): <span style="color: var(--accent-terracotta);">*</span></h4>
+                            <span id="modal-sauces-indicator" style="font-size: 0.85rem; font-weight: 700; color: var(--text-light); background: rgba(30,63,53,0.06); padding: 2px 10px; border-radius: 12px;">0 / 6</span>
+                        </div>
+                        <div class="panel-options" id="modal-sauce-options">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Customer Note -->
+                    <div class="panel-section">
+                        <h4>Instrucciones Especiales:</h4>
+                        <textarea id="modal-customer-note" placeholder="Ej: Sin cebolla, salsas aparte, etc." style="width: 100%; min-height: 60px; padding: 12px; border-radius: var(--border-radius-sm); border: 1px solid rgba(30, 63, 53, 0.1); font-family: inherit; font-size: 0.9rem; resize: vertical; outline: none; transition: var(--transition-smooth); background-color: var(--bg-cream);" onfocus="this.style.borderColor='var(--secondary-mint)';" onblur="this.style.borderColor='rgba(30, 63, 53, 0.1)'"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer: Add to Cart Action -->
+            <div class="modal-footer-action">
+                <button class="btn btn-primary btn-block" id="modal-confirm-add-btn">
+                    Agregar al Pedido <span id="modal-footer-total-price">$5.990</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="Buen Sabowl" class="logo-img">
+                    <span class="logo-text">Buen<span class="logo-highlight">Sabowl</span></span>
+                </a>
+                <p>Comida saludable, fresca y personalizada al alcance de tu mano en Concepción. Arma tu bowl ideal hoy.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <a href="index.html">Inicio</a>
+                <a href="concepto.html">El Concepto</a>
+                <a href="productos.html">Nuestra Carta</a>
+            </div>
+            <div class="footer-social">
+                <h4>Contacto & Redes</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/buensabowl" target="_blank" aria-label="Instagram"><img src="assets/instagram.png" alt="Instagram"></a>
+                    <a href="https://wa.me/56956984709" target="_blank" aria-label="WhatsApp"><img src="assets/whatsapp.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Buen Sabowl Concepción. Todos los derechos reservados. Desarrollado con amor por la comunidad local.</p>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART SIDEBAR (Slide-out) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <div class="cart-header-title">
+                <i data-lucide="shopping-bag"></i>
+                <h3>Tu Pedido</h3>
+            </div>
+            <button class="cart-close" id="cart-close" aria-label="Cerrar carrito">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        
+        <!-- Cart Items (Scrollable) -->
+        <div class="cart-items" id="cart-items-container">
+            <div class="cart-empty-state" id="cart-empty-state">
+                <i data-lucide="shopping-cart" class="empty-icon"></i>
+                <p>Tu carrito está vacío. ¡Comienza a agregar cosas ricas!</p>
+                <a href="productos.html" class="btn btn-secondary btn-sm close-cart-btn-action">Ver menú</a>
+            </div>
+        </div>
+        
+        <!-- Cart Footer -->
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Subtotal:</span>
+                <span class="cart-subtotal" id="cart-subtotal">$0</span>
+            </div>
+            <div class="cart-summary-row delivery-option-row">
+                <span>Entrega:</span>
+                <div class="delivery-toggle-container">
+                    <label class="delivery-toggle-btn active" id="btn-takeaway">
+                        <input type="radio" name="delivery-mode" value="takeaway" checked style="display:none;">
+                        <span>Retiro</span>
+                    </label>
+                    <label class="delivery-toggle-btn" id="btn-delivery">
+                        <input type="radio" name="delivery-mode" value="delivery" style="display:none;">
+                        <span>Delivery</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Sucursal Option -->
+            <div class="cart-summary-row sucursal-option-row" id="sucursal-selection-row" style="margin-top: 10px;">
+                <span>Sucursal:</span>
+                <select id="cart-sucursal-select" style="padding: 6px 12px; border-radius: var(--border-radius-sm); border: 1.5px solid rgba(30, 63, 53, 0.15); background-color: var(--white); color: var(--text-charcoal); font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; outline: none; transition: var(--transition-smooth); width: 140px;">
+                    <option value="Barros Arana">Barros Arana</option>
+                    <option value="Janequeo">Janequeo</option>
+                </select>
+            </div>
+            
+            <div class="cart-actions">
+                <button class="btn btn-primary btn-block checkout-btn" id="checkout-btn">
+                    <i data-lucide="credit-card"></i> Proceder al Pago
+                </button>
+                <button class="btn btn-secondary btn-block" id="continue-shopping-btn">
+                    Seguir Comprando
+                </button>
+            </div>
+            
+            <p class="cart-disclaimer">Pago rápido y seguro disponible mediante Webpay / Transbank.</p>
+        </div>
+    </aside>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
